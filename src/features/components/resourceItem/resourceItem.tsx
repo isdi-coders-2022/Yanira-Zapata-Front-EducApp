@@ -4,28 +4,22 @@ import style from './resourceItem.module.css';
 
 export function ResourceItem({ item }: { item: Resource }) {
     return (
-        <div>
-            <li className={style.resource}>
-                <Link
-                    to={'/resources/' + item.id}
-                    key={item.id}
-                    className={style.divFormat}
-                >
-                    <div className={style.iframeContainer}>
-                        <iframe
-                            className={style.iframe}
-                            src={item.format}
-                        ></iframe>
-                    </div>
-                    <div>
-                        <p>{item.subject}</p>
-                    </div>
-                    <div>
-                        <p>{item.grade}</p>
-                    </div>
-                </Link>
-            </li>
-        </div>
+        <li className={style.resource}>
+            <Link to={'/resources/' + item.id} key={item.id}>
+                <img
+                    className={style.imgList}
+                    width="150px"
+                    src="/assets/logo.jpg"
+                    alt="item"
+                ></img>
+                <div className={style.divFormat}></div>
+            </Link>
+            <div className={style.titleContainer}>
+                <p className={style.itemSubject}>{item.subject}</p>
+
+                <p className={style.itemGrade}>- {item.grade}</p>
+            </div>
+        </li>
     );
 }
 export default ResourceItem;
